@@ -24,6 +24,7 @@ gem 'kaminari'
 #M
 gem 'mailcatcher'
 gem 'mongoid', '~> 6.0.0'
+gem 'mongoid-slug'
 gem 'migration_data'
 gem 'mini_magick'
 #N
