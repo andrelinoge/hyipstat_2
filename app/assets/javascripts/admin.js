@@ -25,8 +25,6 @@
 
 //= require js/pace/pace.min.js
 
-//= require js/nprogress.js
-
 //= require js/datatables/jquery.dataTables.min.js
 //= require js/datatables/dataTables.responsive.min.js
 //= require js/datatables/responsive.bootstrap.min.js

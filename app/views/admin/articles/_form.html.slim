@@ -1,12 +1,29 @@
-= form_for @admin_article, url: admin_articles_path(@admin_article) do |f|
-  - if @admin_article.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@admin_article.errors.count, "error")} prohibited this admin_article from being saved:"
-      ul
-        - @admin_article.errors.full_messages.each do |message|
-          li = message
+= simple_form_for  @admin_article, url: admin_articles_path(@admin_article) do |f|
+  div.col-xs-3
+    ul.nav.nav-tabs.tabs-left
+      li.active
+        a href="#id1" data-toggle="tab" Ru
+      li
+        a href="#id2" data-toggle="tab" En
+  div.col-xs-9
+    div.tab-content
+      #id1.tab-pane.active
+        p.lead Ru
+        = f.input :name do
+          = f.fields_for :name_translations do |localized_field|
+            = localized_field.input_field :ru, input_html: {value: @admin_article.name_translations[:ru]}
+      #id2.tab-pane
+        p.lead En
+        = f.input :name do
+          = f.fields_for :name_translations do |localized_field|
+            = localized_field.input_field :en, input_html: {value: @admin_article.name_translations[:en]}
 
+
+  = f.input :archive, as: :boolean
   .actions
     = link_to 'Back', admin_articles_path, class: 'btn btn-primary'
     '
     = f.submit class: 'btn btn-success'
+
+
+I18n.available_locales
