@@ -9,6 +9,8 @@ class Article
   field :meta_description, type: String, localize: true
   field :reviews, type: Integer, localize: true, default: 0
   field :archive, type: Boolean, default: false
+  field :comments_count, type: Integer, localize: true, default: 0
+  field :last_commented_at, type: DateTime, localize: true
 
   slug :name, localize: true
 
@@ -18,5 +20,9 @@ class Article
 
   def increase_reviews!
     self.inc(reviews: 1)
+  end
+
+  def increase_comments_count!
+    self.inc(comments_count: 1)
   end
 end

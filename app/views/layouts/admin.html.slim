@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    meta content="width=device-width, initial-scale=1" name="viewport" /
+    title
+      = content_for?(:title) ? yield(:title) : 'Admin page'
+
+    = csrf_meta_tags
+    = stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'admin', 'data-turbolinks-track': 'reload'
+  body.nav-md
+    div.container.body
+      div.main_container
+        = render 'partials/sidenav'
+        = render 'partials/topnav'
+
+        .right_col role="main"
+          div
+            .row
+              .col-md-12.col-sm-12.col-xs-12
+                .x_panel style="min-height:600px;"
+                  .x_title
+                    h2
+                      = content_for?(:page_title) ? yield(:page_title) : 'Specify page title!'
+                    .clearfix
+                  .x_content
+                    = yield
+
+        = render 'partials/footer'
+  = yield(:javascript)
+
+  = javascript_include_tag 'admin-theme-manifest', 'data-turbolinks-track': true

@@ -1,0 +1,6 @@
+- content_for(:page_title, @admin_article.name)
+
+
+= link_to 'Edit', edit_admin_article_path(@admin_article)
+'|
+= link_to 'Back', admin_articles_path

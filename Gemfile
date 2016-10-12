@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gem 'any_login'
 #B
 gem 'bcrypt', '~> 3.1.7'
+gem 'bootstrap-sass'
 gem 'bson_ext'
 #C
 gem 'cocoon'
@@ -12,6 +13,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 #E
 #F
+gem "font-awesome-rails"
 #G
 #H
 #I

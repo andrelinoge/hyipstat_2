@@ -1,0 +1,44 @@
+- content_for(:page_title, 'Listing of Articles')
+
+a.btn.btn-primary href="#{new_admin_article_path}"
+  span.glyphicon.glyphicon-plus
+  |  New Article
+br
+br
+br
+
+table#datatable-responsive.table.table-striped.table-bordered.dt-responsive.nowrap cellspacing="0" width="100%"
+  thead
+    tr
+      th Tile
+      th Category
+      th Reviews
+      th Comments
+      th Last comment was
+      th Archive
+      th.nosort
+
+  tbody
+    - @admin_articles.each do |admin_article|
+      tr
+        th = admin_article.name
+        th = admin_article.article_category.try(:name)
+        th = admin_article.reviews
+        th = admin_article.comments_count
+        th = admin_article.last_commented_at
+        th = admin_article.archive
+        th.text-center
+          a href="#{edit_admin_article_path(admin_article)}"
+            span.glyphicon.glyphicon-pencil
+          a.col-md-offset-4 data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="#{admin_article_path(admin_article)}"
+            span.glyphicon.glyphicon-trash
+
+- content_for(:javascript) do
+  coffee:
+    $ -> $('#datatable-responsive').DataTable({
+      'aoColumnDefs': [{
+          'bSortable': false,
+          'aTargets': ['nosort']
+      }]
+    })
+

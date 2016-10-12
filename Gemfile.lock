@@ -42,7 +42,12 @@ GEM
     any_login (1.2.1)
       rails (>= 4.0.0)
     arel (7.1.2)
+    autoprefixer-rails (6.5.0.2)
+      execjs
     bcrypt (3.1.11)
+    bootstrap-sass (3.3.7)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     bson (4.1.1)
     bson_ext (1.5.1)
     builder (3.2.2)
@@ -71,6 +76,8 @@ GEM
     eventmachine (1.0.9.1)
     execjs (2.7.0)
     ffi (1.9.14)
+    font-awesome-rails (4.6.3.1)
+      railties (>= 3.2, < 5.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     haml (4.0.7)
@@ -268,11 +275,13 @@ PLATFORMS
 DEPENDENCIES
   any_login
   bcrypt (~> 3.1.7)
+  bootstrap-sass
   bson_ext
   cocoon
   coffee-rails (~> 4.2)
   database_cleaner
   devise
+  font-awesome-rails
   jbuilder (~> 2.5)
   jquery-rails
   kaminari
