@@ -19,7 +19,7 @@ class Admin::ArticlesController < Admin::ApplicationController
     @admin_article = Article.new(admin_article_params)
 
     if @admin_article.save
-      redirect_to @admin_article, notice: 'Article was successfully created.'
+      redirect_to admin_article_path(@admin_article), notice: 'Article was successfully created.'
     else
       render :new
     end
@@ -27,7 +27,7 @@ class Admin::ArticlesController < Admin::ApplicationController
 
   def update
     if @admin_article.update(admin_article_params)
-      redirect_to @admin_article, notice: 'Article was successfully updated.'
+      redirect_to admin_article_path(@admin_article), notice: 'Article was successfully updated.'
     else
       render :edit
     end
@@ -44,6 +44,11 @@ class Admin::ArticlesController < Admin::ApplicationController
     end
 
     def admin_article_params
-      params.fetch(:admin_article, {})
+      params.require(:article).permit(:archive, :article_category_id, {
+        title_translations: I18n.available_locales,
+        content_translations: I18n.available_locales,
+        meta_keywords_translations: I18n.available_locales,
+        meta_description_translations: I18n.available_locales
+      })
     end
 end

@@ -21,7 +21,7 @@ table#datatable-responsive.table.table-striped.table-bordered.dt-responsive.nowr
   tbody
     - @admin_articles.each do |admin_article|
       tr
-        th = admin_article.name
+        th = admin_article.title
         th = admin_article.article_category.try(:name)
         th = admin_article.reviews
         th = admin_article.comments_count

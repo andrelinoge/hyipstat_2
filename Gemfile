@@ -7,6 +7,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass'
 gem 'bson_ext'
 #C
+gem 'carrierwave-mongoid', require: 'carrierwave/mongoid'
+gem 'ckeditor'
 gem 'cocoon'
 gem 'coffee-rails', '~> 4.2'
 #D

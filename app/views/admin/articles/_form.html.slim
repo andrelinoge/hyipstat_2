@@ -1,24 +1,30 @@
-= simple_form_for  @admin_article, url: admin_articles_path(@admin_article) do |f|
-  div.col-xs-3
+= simple_form_for  @admin_article, url: @admin_article.new_record? ? admin_articles_path : admin_article_path(@admin_article) do |f|
+  .col-xs-3
     ul.nav.nav-tabs.tabs-left
-      li.active
-        a href="#id1" data-toggle="tab" Ru
-      li
-        a href="#id2" data-toggle="tab" En
-  div.col-xs-9
-    div.tab-content
-      #id1.tab-pane.active
-        p.lead Ru
-        = f.input :name do
-          = f.fields_for :name_translations do |localized_field|
-            = localized_field.input_field :ru, input_html: {value: @admin_article.name_translations[:ru]}
-      #id2.tab-pane
-        p.lead En
-        = f.input :name do
-          = f.fields_for :name_translations do |localized_field|
-            = localized_field.input_field :en, input_html: {value: @admin_article.name_translations[:en]}
+      - I18n.available_locales.each_with_index do |locale, index|
+        li class="#{class_for_frist_only('active', index)}"
+          a href="#lang-#{locale}" data-toggle="tab" #{locale.capitalize}
 
+  .col-xs-9
+    .tab-content
+      - I18n.available_locales.each_with_index do |locale, index|
+        div id="lang-#{locale}" class="tab-pane #{class_for_frist_only('active', index)}"
+          p.lead ="#{locale.capitalize}"
+          = f.fields_for :title_translations do |localized_field|
+            = localized_field.input locale, input_html: {value: @admin_article.title_translations[locale]}, label: 'Title'
 
+          = f.fields_for :content_translations do |localized_field|
+            = localized_field.input locale, as: :ckeditor, input_html: {value: @admin_article.content_translations[locale]}, label: 'Content'
+
+          = f.fields_for :meta_keywords_translations do |localized_field|
+            = localized_field.input locale, as: :text, input_html: {value: @admin_article.meta_keywords_translations[locale]}, label: 'Meta keywords'
+
+          = f.fields_for :meta_description_translations do |localized_field|
+            = localized_field.input locale, as: :text, input_html: {value: @admin_article.meta_description_translations[locale]}, label: 'Meta description'
+
+  .clearfix
+
+  = f.association :article_category
   = f.input :archive, as: :boolean
   .actions
     = link_to 'Back', admin_articles_path, class: 'btn btn-primary'
@@ -26,4 +32,3 @@
     = f.submit class: 'btn btn-success'
 
 
-I18n.available_locales

@@ -3,7 +3,7 @@ class Article
   include Mongoid::Timestamps
   include Mongoid::Slug
 
-  field :name, type: String, localize: true
+  field :title, type: String, localize: true
   field :content, type: String, localize: true
   field :meta_keywords, type: String, localize: true
   field :meta_description, type: String, localize: true
@@ -12,11 +12,9 @@ class Article
   field :comments_count, type: Integer, localize: true, default: 0
   field :last_commented_at, type: DateTime, localize: true
 
-  slug :name, localize: true
+  slug :title, localize: true
 
   belongs_to :article_category
-
-  validates_presence_of :name, :content
 
   def increase_reviews!
     self.inc(reviews: 1)
