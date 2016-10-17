@@ -1,14 +1,14 @@
-= simple_form_for  @admin_article, url: @admin_article.new_record? ? admin_articles_path : admin_article_path(@admin_article) do |f|
+= simple_form_for  [:admin, @admin_article] do |f|
   .col-xs-3
     ul.nav.nav-tabs.tabs-left
       - I18n.available_locales.each_with_index do |locale, index|
-        li class="#{class_for_frist_only('active', index)}"
+        li class="#{for_first_only('active', index)}"
           a href="#lang-#{locale}" data-toggle="tab" #{locale.capitalize}
 
   .col-xs-9
     .tab-content
       - I18n.available_locales.each_with_index do |locale, index|
-        div id="lang-#{locale}" class="tab-pane #{class_for_frist_only('active', index)}"
+        div id="lang-#{locale}" class="tab-pane #{for_first_only('active', index)}"
           p.lead ="#{locale.capitalize}"
           = f.fields_for :title_translations do |localized_field|
             = localized_field.input locale, input_html: {value: @admin_article.title_translations[locale]}, label: 'Title'

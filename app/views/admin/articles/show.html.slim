@@ -1,6 +1,37 @@
 - content_for(:page_title, @admin_article.title)
 
+ul.nav.nav-tabs.bar_tabs
+  - I18n.available_locales.each_with_index do |locale, index|
+    li class="#{for_first_only('active', index)}"
+      a href="#lang-#{locale}" data-toggle="tab" aria-expanded="#{for_first_only('true', index, 'false')}" #{locale.capitalize}
 
-= link_to 'Edit', edit_admin_article_path(@admin_article)
-'|
-= link_to 'Back', admin_articles_path
+div.tab-content
+  - I18n.available_locales.each_with_index do |locale, index|
+    div role="tabpanel" class="tab-pane fade #{for_first_only('active', index)} in" id="lang-#{locale}"
+      p.lead
+        = @admin_article.title_translations[locale]
+
+      = @admin_article.content_translations[locale].html_safe
+
+      div.accordion aria-multiselectable="true" role="tablist" id="accordion_#{locale}"
+        .panel
+          a.panel-heading aria-controls="meta_keywords_#{locale}" aria-expanded="true" data-parent="#accordion_#{locale}" data-toggle="collapse" href="#meta_keywords_#{locale}" role="tab" id="heading_meta_keywords_#{locale}"
+            h4.panel-title Meta keywords
+          div.panel-collapse.collapse.in aria-labelledby="heading_meta_keywords_#{locale}" role="tabpanel" id="meta_keywords_#{locale}"
+            .panel-body
+              = @admin_article.meta_keywords_translations[locale]
+        .panel
+          a.panel-heading.collapsed aria-controls="meta_description_#{locale}" aria-expanded="false" data-parent="#accordion_#{locale}" data-toggle="collapse" href="#meta_description_#{locale}" role="tab" id="heading_meta_description_#{locale}"
+            h4.panel-title Meta description
+          .panel-collapse.collapse aria-labelledby="heading_meta_description_#{locale}" role="tabpanel" id="meta_description_#{locale}"
+            .panel-body
+              = @admin_article.meta_description_translations[locale]
+
+.clearfix
+hr
+
+= link_to edit_admin_article_path(@admin_article), class: 'btn btn-success' do
+  span.glyphicon.glyphicon-pencil
+  |  Edit
+
+= link_to 'Back', admin_articles_path, class: 'btn btn-primary'
