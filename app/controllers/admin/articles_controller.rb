@@ -44,11 +44,11 @@ class Admin::ArticlesController < Admin::ApplicationController
     end
 
     def admin_article_params
-      params.require(:article).permit(:archive, :article_category_id, {
+      params.require(:article).permit(:archive, :cover_cache, :article_category_id, :crop_x, :crop_y, :crop_w, :crop_h, {
         title_translations: I18n.available_locales,
         content_translations: I18n.available_locales,
         meta_keywords_translations: I18n.available_locales,
         meta_description_translations: I18n.available_locales
-      })
+      }, :cover)
     end
 end

@@ -1,4 +1,4 @@
-= simple_form_for  [:admin, @admin_article] do |f|
+= simple_form_for [:admin, @admin_article], :html => {:multipart => true} do |f|
   .col-xs-3
     ul.nav.nav-tabs.tabs-left
       - I18n.available_locales.each_with_index do |locale, index|
@@ -26,9 +26,24 @@
 
   = f.association :article_category
   = f.input :archive, as: :boolean
+  = f.input :cover, as: :file, label: false
+
+  .clearfix
+  .row
+    .col-xs-5
+      = f.cropbox :cover, version: :large, width: 640, height: 480
+    .col-xs-1
+      = f.previewbox :cover, version: :thumb
+
+  = f.hidden_field :cover_cache
+  .clearfix
+  br
   .actions
     = link_to 'Back', admin_articles_path, class: 'btn btn-primary'
     '
     = f.submit class: 'btn btn-success'
 
 
+coffee:
+  jQuery ->
+    new ArticleCoverCropper()

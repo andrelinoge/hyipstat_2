@@ -20,7 +20,7 @@ gem "font-awesome-rails"
 #H
 #I
 #J
-gem 'jbuilder', '~> 2.5'
+gem 'jcrop-rails-v2'
 gem 'jquery-rails'
 #K
 gem 'kaminari'

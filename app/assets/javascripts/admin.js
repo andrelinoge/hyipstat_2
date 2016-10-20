@@ -30,5 +30,7 @@
 //= require js/datatables/responsive.bootstrap.min.js
 
 //= require ckeditor/init
+//= require jquery.Jcrop
+//= require jcrop_on_fly.js
 
 //= require_tree ./admin

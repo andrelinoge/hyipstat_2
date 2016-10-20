@@ -1,5 +1,7 @@
 - content_for(:page_title, @admin_article.title)
 
+= image_tag(@admin_article.cover.thumb.url) if @admin_article.cover?
+
 ul.nav.nav-tabs.bar_tabs
   - I18n.available_locales.each_with_index do |locale, index|
     li class="#{for_first_only('active', index)}"

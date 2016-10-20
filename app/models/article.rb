@@ -3,6 +3,12 @@ class Article
   include Mongoid::Timestamps
   include Mongoid::Slug
 
+  mount_uploader :cover, ArticleCoverUploader
+  attr_accessor :cover_cache
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+
+  field :cover, type: String, default: ''
+
   field :title, type: String, localize: true
   field :content, type: String, localize: true
   field :meta_keywords, type: String, localize: true
@@ -16,6 +22,12 @@ class Article
 
   belongs_to :article_category
 
+  after_save :crop_cover
+
+  def crop_cover
+    cover.recreate_versions! if crop_x.present?
+  end
+
   def increase_reviews!
     self.inc(reviews: 1)
   end
@@ -23,4 +35,5 @@ class Article
   def increase_comments_count!
     self.inc(comments_count: 1)
   end
+
 end
