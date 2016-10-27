@@ -1,0 +1,22 @@
+= simple_form_for [:admin, @category], :html => {:multipart => true} do |f|
+  .col-xs-3
+    ul.nav.nav-tabs.tabs-left
+      - I18n.available_locales.each_with_index do |locale, index|
+        li class="#{for_first_only('active', index)}"
+          a href="#lang-#{locale}" data-toggle="tab" #{locale.capitalize}
+
+  .col-xs-9
+    .tab-content
+      - I18n.available_locales.each_with_index do |locale, index|
+        div id="lang-#{locale}" class="tab-pane #{for_first_only('active', index)}"
+          p.lead ="#{locale.capitalize}"
+          = f.fields_for :name do |localized_field|
+            = localized_field.input locale, input_html: {value: @category.name_translations[locale]}, label: 'Name'
+
+  .clearfix
+  br
+  .actions
+    = link_to 'Back', admin_hyip_categories_path, class: 'btn btn-primary'
+    '
+    = f.submit class: 'btn btn-success'
+

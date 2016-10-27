@@ -11,7 +11,6 @@ table#datatable-responsive.table.table-striped.table-bordered.dt-responsive.nowr
   thead
     tr
       th Tile
-      th Category
       th Reviews
       th Comments
       th Last comment was
@@ -19,18 +18,17 @@ table#datatable-responsive.table.table-striped.table-bordered.dt-responsive.nowr
       th.nosort
 
   tbody
-    - @admin_articles.each do |admin_article|
+    - @resources.each do |resource|
       tr
-        th = admin_article.title
-        th = admin_article.article_category.try(:name)
-        th = admin_article.reviews
-        th = admin_article.comments_count
-        th = admin_article.last_commented_at
-        th = admin_article.archive
+        th = resources.title
+        th = resources.reviews
+        th = resources.comments_count
+        th = resources.last_commented_at
+        th = resources.archive
         th.text-center
-          a href="#{edit_admin_article_path(admin_article)}"
+          a href="#{edit_admin_article_path(resources)}"
             span.glyphicon.glyphicon-pencil
-          a.col-md-offset-4 data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="#{admin_article_path(admin_article)}"
+          a.col-md-offset-4 data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="#{admin_article_path(resources)}"
             span.glyphicon.glyphicon-trash
 
 - content_for(:javascript) do

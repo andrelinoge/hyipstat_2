@@ -1,0 +1,49 @@
+= simple_form_for [:admin, @resource], :html => {:multipart => true} do |f|
+  .col-xs-3
+    ul.nav.nav-tabs.tabs-left
+      - I18n.available_locales.each_with_index do |locale, index|
+        li class="#{for_first_only('active', index)}"
+          a href="#lang-#{locale}" data-toggle="tab" #{locale.capitalize}
+
+  .col-xs-9
+    .tab-content
+      - I18n.available_locales.each_with_index do |locale, index|
+        div id="lang-#{locale}" class="tab-pane #{for_first_only('active', index)}"
+          p.lead ="#{locale.capitalize}"
+          = f.fields_for :title_translations do |localized_field|
+            = localized_field.input locale, input_html: {value: @resource.title_translations[locale]}, label: 'Title'
+
+          = f.fields_for :content_translations do |localized_field|
+            = localized_field.input locale, as: :ckeditor, input_html: {value: @resource.content_translations[locale]}, label: 'Content'
+
+          = f.fields_for :meta_keywords_translations do |localized_field|
+            = localized_field.input locale, as: :text, input_html: {value: @resource.meta_keywords_translations[locale]}, label: 'Meta keywords'
+
+          = f.fields_for :meta_description_translations do |localized_field|
+            = localized_field.input locale, as: :text, input_html: {value: @resource.meta_description_translations[locale]}, label: 'Meta description'
+
+  .clearfix
+
+  = f.association :hyip_category
+  = f.input :archive, as: :boolean
+  = f.input :cover, as: :file, label: false
+
+  .clearfix
+  .row
+    .col-xs-5
+      = f.cropbox :cover, version: :large, width: 640, height: 480
+    .col-xs-1
+      = f.previewbox :cover, version: :thumb
+
+  = f.hidden_field :cover_cache
+  .clearfix
+  br
+  .actions
+    = link_to 'Back', resources_path, class: 'btn btn-primary'
+    '
+    = f.submit class: 'btn btn-success'
+
+
+coffee:
+  jQuery ->
+    new ArticleCoverCropper()

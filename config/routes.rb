@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   namespace :admin do
+    get '/', to: 'dashboard#index'
     resources :articles
-    resources :article_categories
+    resources :hyip_categories
+    resources :hyipes
   end
   root 'welcome#index'
 

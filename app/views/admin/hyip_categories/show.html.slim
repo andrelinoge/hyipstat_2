@@ -1,0 +1,21 @@
+- content_for(:page_title, @category.name)
+
+ul.nav.nav-tabs.bar_tabs
+  - I18n.available_locales.each_with_index do |locale, index|
+    li class="#{for_first_only('active', index)}"
+      a href="#lang-#{locale}" data-toggle="tab" aria-expanded="#{for_first_only('true', index, 'false')}" #{locale.capitalize}
+
+div.tab-content
+  - I18n.available_locales.each_with_index do |locale, index|
+    div role="tabpanel" class="tab-pane fade #{for_first_only('active', index)} in" id="lang-#{locale}"
+      p.lead
+        = @category.name_translations[locale]
+
+.clearfix
+hr
+
+= link_to edit_admin_hyip_category_path(@category), class: 'btn btn-success' do
+  span.glyphicon.glyphicon-pencil
+  |  Edit
+
+= link_to 'Back', admin_hyip_categories_path, class: 'btn btn-primary'

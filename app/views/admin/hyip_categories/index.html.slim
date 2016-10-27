@@ -1,0 +1,34 @@
+- content_for(:page_title, 'Listing of Hyip categories')
+
+a.btn.btn-primary href="#{new_admin_hyip_category_path}"
+  span.glyphicon.glyphicon-plus
+  |  New hyip category
+br
+br
+br
+
+table#datatable-responsive.table.table-striped.table-bordered.dt-responsive.nowrap cellspacing="0" width="100%"
+  thead
+    tr
+      th Name
+      th.nosort
+
+  tbody
+    - @categories.each do |category|
+      tr
+        th = category.title
+        th.text-center
+          a href="#{edit_admin_hyip_category_path(category)}"
+            span.glyphicon.glyphicon-pencil
+          a.col-md-offset-4 data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="#{admin_hyip_category_path(category)}"
+            span.glyphicon.glyphicon-trash
+
+- content_for(:javascript) do
+  coffee:
+    $ -> $('#datatable-responsive').DataTable({
+      'aoColumnDefs': [{
+          'bSortable': false,
+          'aTargets': ['nosort']
+      }]
+    })
+
