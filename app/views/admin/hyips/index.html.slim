@@ -1,4 +1,4 @@
-- content_for(:page_title, 'Listing of Hyipes')
+- content_for(:page_title, 'Listing of Hyips')
 
 a.btn.btn-primary href="#{new_admin_hyipe_path}"
   span.glyphicon.glyphicon-plus
@@ -21,12 +21,12 @@ table#datatable-responsive.table.table-striped.table-bordered.dt-responsive.nowr
   tbody
     - @resources.each do |resource|
       tr
-        th = resources.title
-        th = resources.hyip_category.try(:name)
-        th = resources.reviews
-        th = resources.comments_count
-        th = resources.last_commented_at
-        th = resources.archive
+        th = resource.title
+        th = resource.hyip_category.try(:name)
+        th = resource.reviews
+        th = resource.comments_count
+        th = resource.last_commented_at
+        th = resource.archive
         th.text-center
           a href="#{edit_admin_hyipe_path(resources)}"
             span.glyphicon.glyphicon-pencil

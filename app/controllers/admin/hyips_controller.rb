@@ -1,4 +1,4 @@
-class Admin::HyipesController < Admin::ApplicationController
+class Admin::HyipsController < Admin::ApplicationController
   before_action :set_resource, only: [:show, :edit, :update, :destroy]
 
   def index

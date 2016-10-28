@@ -16,17 +16,16 @@ class Admin::HyipCategoriesController < Admin::ApplicationController
   end
 
   def create
-    @category = HyipCategory.new(item_params)
-
+    @category = HyipCategory.new(resource_params)
     if @category.save
-      redirect_to @category, notice: 'Article category was successfully created.'
+      redirect_to [:admin, @category], notice: 'Article category was successfully created.'
     else
       render :new
     end
   end
 
   def update
-    if @category.update(item_params)
+    if @category.update(resource_params)
       redirect_to @category, notice: 'Article category was successfully updated.'
     else
       render :edit
@@ -44,7 +43,9 @@ class Admin::HyipCategoriesController < Admin::ApplicationController
       @category = HyipCategory.find(params[:id])
     end
 
-    def item_params
-      params.fetch(:admin_hyip_category, {})
+    def resource_params
+      params.require(:hyip_category).permit({
+        name_translations: I18n.available_locales
+      })
     end
 end

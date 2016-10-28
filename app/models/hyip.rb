@@ -3,7 +3,7 @@ class Hyip
   include Mongoid::Timestamps
   include Mongoid::Slug
 
-  mount_uploader :cover, CoverUploader
+  mount_uploader :cover, HyipCoverUploader
   attr_accessor :cover_cache
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
 

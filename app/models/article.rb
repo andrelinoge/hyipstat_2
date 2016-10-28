@@ -3,7 +3,7 @@ class Article
   include Mongoid::Timestamps
   include Mongoid::Slug
 
-  mount_uploader :cover, CoverUploader
+  mount_uploader :cover, ArticleCoverUploader
   attr_accessor :cover_cache
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
 
@@ -19,6 +19,8 @@ class Article
   field :last_commented_at, type: DateTime, localize: true
 
   slug :title, localize: true
+
+  belongs_to :article_category
 
   after_save :crop_cover
 

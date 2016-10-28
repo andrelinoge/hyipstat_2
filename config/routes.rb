@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   namespace :admin do
     get '/', to: 'dashboard#index'
     resources :articles
+    resources :article_categories
     resources :hyip_categories
-    resources :hyipes
+    resources :hyips
   end
   root 'welcome#index'
 

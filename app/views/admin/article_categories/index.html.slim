@@ -1,6 +1,6 @@
-- content_for(:page_title, 'Listing of Hyip categories')
+- content_for(:page_title, 'Listing of Article categories')
 
-a.btn.btn-primary href="#{new_admin_hyip_category_path}"
+a.btn.btn-primary href="#{new_admin_article_category_path}"
   span.glyphicon.glyphicon-plus
   |  New hyip category
 br
@@ -18,9 +18,9 @@ table#datatable-responsive.table.table-striped.table-bordered.dt-responsive.nowr
       tr
         th = category.name
         th.text-center
-          a href="#{edit_admin_hyip_category_path(category)}"
+          a href="#{edit_admin_article_category_path(category)}"
             span.glyphicon.glyphicon-pencil
-          a.col-md-offset-4 data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="#{admin_hyip_category_path(category)}"
+          a.col-md-offset-4 data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="#{admin_article_category_path(category)}"
             span.glyphicon.glyphicon-trash
 
 - content_for(:javascript) do
