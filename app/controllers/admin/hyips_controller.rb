@@ -44,7 +44,7 @@ class Admin::HyipsController < Admin::ApplicationController
     end
 
     def resource_params
-      params.require(:Hyip).permit(:archive, :cover_cache, :Hyip_category_id, :crop_x, :crop_y, :crop_w, :crop_h, {
+      params.require(:hyip).permit(:cover_cache, :hyip_category_id, :crop_x, :crop_y, :crop_w, :crop_h, {
         title_translations: I18n.available_locales,
         content_translations: I18n.available_locales,
         meta_keywords_translations: I18n.available_locales,

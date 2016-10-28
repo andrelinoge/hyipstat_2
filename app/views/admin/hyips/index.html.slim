@@ -15,7 +15,6 @@ table#datatable-responsive.table.table-striped.table-bordered.dt-responsive.nowr
       th Reviews
       th Comments
       th Last comment was
-      th Archive
       th.nosort
 
   tbody
@@ -26,7 +25,6 @@ table#datatable-responsive.table.table-striped.table-bordered.dt-responsive.nowr
         th = resource.reviews
         th = resource.comments_count
         th = resource.last_commented_at
-        th = resource.archive
         th.text-center
           a href="#{edit_admin_hyipe_path(resources)}"
             span.glyphicon.glyphicon-pencil

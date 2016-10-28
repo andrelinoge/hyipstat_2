@@ -25,7 +25,6 @@
   .clearfix
 
   = f.association :hyip_category
-  = f.input :archive, as: :boolean
   = f.input :cover, as: :file, label: false
 
   .clearfix
@@ -46,4 +45,4 @@
 
 coffee:
   jQuery ->
-    new ArticleCoverCropper()
+    new HyipCoverCropper()

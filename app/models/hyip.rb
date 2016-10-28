@@ -14,7 +14,6 @@ class Hyip
   field :meta_keywords, type: String, localize: true
   field :meta_description, type: String, localize: true
   field :reviews, type: Integer, localize: true, default: 0
-  field :archive, type: Boolean, default: false
   field :comments_count, type: Integer, localize: true, default: 0
   field :last_commented_at, type: DateTime, localize: true
 

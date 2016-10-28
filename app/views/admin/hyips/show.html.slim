@@ -32,8 +32,8 @@ div.tab-content
 .clearfix
 hr
 
-= link_to edit_resource_path(@resource), class: 'btn btn-success' do
+= link_to edit_admin_hyip_path(@resource), class: 'btn btn-success' do
   span.glyphicon.glyphicon-pencil
   |  Edit
 
-= link_to 'Back', resources_path, class: 'btn btn-primary'
+= link_to 'Back', admin_hyips_path, class: 'btn btn-primary'
