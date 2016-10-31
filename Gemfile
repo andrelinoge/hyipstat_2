@@ -17,6 +17,8 @@ gem 'devise'
 #F
 gem "font-awesome-rails"
 #G
+gem 'gettext'
+gem 'gettext_i18n_rails'
 #H
 #I
 #J
@@ -40,6 +42,7 @@ gem 'puma', '~> 3.0'
 #R
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'redis-rails'
+gem 'ruby_parser', :require => false
 #S
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form'

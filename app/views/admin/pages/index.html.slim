@@ -1,22 +1,27 @@
-- content_for(:page_title, _('Listing of Article categories'))
+- content_for(:page_title, _('Listing of Special Pages'))
 
+br
 br
 br
 
 table#datatable-responsive.table.table-striped.table-bordered.dt-responsive.nowrap cellspacing="0" width="100%"
   thead
     tr
-      - I18n.available_locales.each do |locale|
-        th = locale
+      th = _('Tile')
+      th = _('Reviews')
+      th = _('Comments')
+      th = _('Last comment was')
       th.nosort
 
   tbody
-    - @categories.each do |category|
+    - @resources.each do |resource|
       tr
-        - I18n.available_locales.each do |locale|
-          th = category.name_translations[locale]
+        th = link_to resource.title, admin_article_path(resource)
+        th = resource.reviews
+        th = resource.comments_count
+        th = resource.last_commented_at
         th.text-center
-          a href="#{edit_admin_article_category_path(category)}"
+          a href="#{edit_admin_page_path(resource)}"
             span.glyphicon.glyphicon-pencil
 
 - content_for(:javascript) do

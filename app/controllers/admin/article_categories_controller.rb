@@ -10,20 +10,6 @@ class Admin::ArticleCategoriesController < Admin::ApplicationController
 
   # predifiend categories in seeds file
 
-  # def new
-  #   @category = ArticleCategory.new
-  # end
-
-  # def create
-  #   @category = ArticleCategory.new(resource_params)
-
-  #   if @category.save
-  #     redirect_to @category, notice: 'Article category was successfully created.'
-  #   else
-  #     render :new
-  #   end
-  # end
-
   def edit
   end
 
@@ -34,12 +20,6 @@ class Admin::ArticleCategoriesController < Admin::ApplicationController
       render :edit
     end
   end
-
-  # def destroy
-  #   @category.destroy
-  #   redirect_to admin_hyip_categories_url, notice: 'Article category was successfully destroyed.'
-  #   head :no_content
-  # end
 
   private
     def set_resource

@@ -2,7 +2,7 @@
   .left_col.scroll-view
     .navbar.nav_title style=("border: 0;")
       a.site_title href="#{admin_path}"
-        span Project admin
+        span Admin dashboard
     .clearfix
     /! menu profile quick info
     .profile
@@ -18,31 +18,31 @@
     /! sidebar menu
     #sidebar-menu.main_menu_side.hidden-print.main_menu
       .menu_section
-        h3 Pages
+        h3 = _('Pages')
         ul.nav.side-menu
           li
             a
               i.fa.fa-edit
-              | Static pages
+              = _('Static pages')
               span.fa.fa-chevron-down
             ul.nav.child_menu style=("display: none")
               li
-                a href="#{admin_articles_path}"  Articles
+                a href="#{admin_articles_path}"  = _('Articles')
               li
-                a href="#{admin_article_categories_path}"  Article categories
+                a href="#{admin_article_categories_path}"  = _('Article categories')
               li
-                a href="index3.html"  Special pages
+                a href="#{admin_pages_path}" = _('Special pages')
         ul.nav.side-menu
           li
             a
               i.fa.fa-edit
-              | Hyip pages
+              = _('Hyip pages')
               span.fa.fa-chevron-down
             ul.nav.child_menu style=("display: none")
               li
-                a href="#{admin_hyip_categories_path}"  Hyip Categories
+                a href="#{admin_hyip_categories_path}" = _('Hyip Categories')
               li
-                a href="#{admin_hyips_path}"  Hyipes
+                a href="#{admin_hyips_path}" = _('Hyipes')
       .menu_section
         h3 Comments
         ul.nav.side-menu

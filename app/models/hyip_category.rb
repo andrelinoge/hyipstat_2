@@ -7,7 +7,4 @@ class HyipCategory
   slug :name, localize: true
 
   has_many :hyips
-
-  validates_presence_of  :name
-
 end
