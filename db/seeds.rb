@@ -13,4 +13,18 @@ predifined_categories_en.each_with_index do |en_value, index|
   category = ArticleCategory.create name_translations: {en: en_value, ru: predifined_categories_ru[index] }
 end
 
+predifined_static_pages_en = Page::PAGE_CATEGORIES 
+predifined_static_pages_ru = %w{онас}
+
+predifined_static_pages_en.each_with_index do |en_value, index|
+  Page.create ({
+  	category: en_value,
+  	title_translations: {en: en_value, ru: predifined_static_pages_ru[index] },
+  	content_translations: {en: en_value, ru: predifined_static_pages_ru[index] },
+  	meta_keywords_translations: {en: en_value, ru: predifined_static_pages_ru[index] },
+  	meta_description_translations: {en: en_value, ru: predifined_static_pages_ru[index] }
+  })
+end
+
+
 Rake::Task['mongoid_slug:set'].execute

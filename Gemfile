@@ -14,6 +14,7 @@ gem 'coffee-rails', '~> 4.2'
 #D
 gem 'devise'
 #E
+gem 'enumerize'
 #F
 gem "font-awesome-rails"
 #G

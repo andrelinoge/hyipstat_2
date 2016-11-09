@@ -2,12 +2,15 @@ class Page
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::Slug
+  extend Enumerize
 
-  mount_uploader :cover, ArticleCoverUploader
-  attr_accessor :cover_cache
-  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+  PAGE_CATEGORIES = [:contacts]
 
-  field :cover, type: String, default: ''
+  # mount_uploader :cover, ArticleCoverUploader
+  # attr_accessor :cover_cache
+  # attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+
+  # field :cover, type: String, default: ''
 
   field :title, type: String, localize: true
   field :content, type: String, localize: true
@@ -17,15 +20,16 @@ class Page
   field :comments_count, type: Integer, localize: true, default: 0
   field :last_commented_at, type: DateTime, localize: true
 
-  field :category, type: Integer
+  field :category
+  enumerize :category, in: PAGE_CATEGORIES
 
   slug :title, localize: true
 
-  after_save :crop_cover
+  # after_save :crop_cover
 
-  def crop_cover
-    cover.recreate_versions! if crop_x.present?
-  end
+  # def crop_cover
+  #   cover.recreate_versions! if crop_x.present?
+  # end
 
   def increase_reviews!
     self.inc(reviews: 1)
