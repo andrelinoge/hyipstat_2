@@ -1,9 +1,26 @@
 class User
   include Mongoid::Document
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :confirmable,
-         :recoverable, :rememberable, :trackable, :validatable
+  extend Enumerize
+
+  ROLES       = [:user, :moderator, :admin]
+  SEX_OPTIONS = [:male, :female]
+
+  mount_uploader :avatar, AvatarUploader
+  attr_accessor :avatar_cache
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+
+  field :avatar, type: String, default: ''
+
+  field :login_name, type: String
+  field :sex
+  enumerize :sex, in: SEX_OPTIONS
+  field :role 
+  enumerize :role, in: ROLES, default: :user
+  field :birthday, type: Time
+
+  # Devise
+  
+  devise :database_authenticatable, :registerable, :confirmable, :recoverable, :rememberable, :trackable, :validatable
 
   ## Database authenticatable
   field :email,              type: String, default: ""
@@ -33,4 +50,6 @@ class User
   # field :failed_attempts, type: Integer, default: 0 # Only if lock strategy is :failed_attempts
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   # field :locked_at,       type: Time
+
+  
 end
