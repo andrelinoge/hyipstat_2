@@ -10,25 +10,25 @@ br
 table#datatable-responsive.table.table-striped.table-bordered.dt-responsive.nowrap cellspacing="0" width="100%"
   thead
     tr
-      th = _('Tile')
-      th = _('Reviews')
-      th = _('Comments')
-      th = _('Last comment was')
-      th = _('Archive')
+      th = _('Full Name')
+      th = _('Login name')
+      th = _('Email')
+      th = _('Last sign in')
+      th = _('Convfirmend')
       th.nosort
 
   tbody
     - @resources.each do |resource|
       tr
-        th = link_to resource.title, admin_article_path(resource)
-        th = resource.reviews
-        th = resource.comments_count
-        th = resource.last_commented_at
-        th = resource.archive
+        th = link_to resource.full_name, admin_user_path(resource)
+        th = resource.login_name
+        th = resource.email
+        th = resource.last_sign_in_ip
+        th = resource.confirmed?
         th.text-center
-          a href="#{edit_admin_article_path(resource)}"
+          a href="#{edit_admin_user_path(resource)}"
             span.glyphicon.glyphicon-pencil
-          a.col-md-offset-4 data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="#{delete_admin_article_path(resource)}"
+          a.col-md-offset-4 data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="#{send("admin_article_path", resource)}"
             span.glyphicon.glyphicon-trash
 
 - content_for(:javascript) do

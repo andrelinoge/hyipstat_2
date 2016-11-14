@@ -12,6 +12,8 @@ class User
   field :avatar, type: String, default: ''
 
   field :login_name, type: String
+  field :first_name, type: String
+  field :last_name, type: String
   field :sex
   enumerize :sex, in: SEX_OPTIONS
   field :role 
