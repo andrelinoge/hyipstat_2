@@ -35,7 +35,7 @@ class Admin::ArticlesController < Admin::ApplicationController
 
   def destroy
     @resource.destroy
-    redirect_to resources_url, notice: 'Article was successfully destroyed.'
+    redirect_to admin_articles_url, notice: 'Article was successfully destroyed.'
   end
 
   private

@@ -1,6 +1,6 @@
 - content_for(:page_title, 'Listing of Hyips')
 
-a.btn.btn-primary href="#{new_admin_hyipe_path}"
+a.btn.btn-primary href="#{new_admin_hyip_path}"
   span.glyphicon.glyphicon-plus
   |  New Hyip
 br
@@ -26,9 +26,9 @@ table#datatable-responsive.table.table-striped.table-bordered.dt-responsive.nowr
         th = resource.comments_count
         th = resource.last_commented_at
         th.text-center
-          a href="#{edit_admin_hyipe_path(resources)}"
+          a href="#{edit_admin_hyip_path(resource)}"
             span.glyphicon.glyphicon-pencil
-          a.col-md-offset-4 data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="#{admin_hyip_path(resources)}"
+          a.col-md-offset-4 data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="#{admin_hyip_path(resource)}"
             span.glyphicon.glyphicon-trash
 
 - content_for(:javascript) do

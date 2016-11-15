@@ -28,7 +28,7 @@ table#datatable-responsive.table.table-striped.table-bordered.dt-responsive.nowr
         th.text-center
           a href="#{edit_admin_article_path(resource)}"
             span.glyphicon.glyphicon-pencil
-          a.col-md-offset-4 data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="#{delete_admin_article_path(resource)}"
+          a.col-md-offset-4 data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="#{admin_article_path(resource)}"
             span.glyphicon.glyphicon-trash
 
 - content_for(:javascript) do
