@@ -18,8 +18,8 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process crop: [100,100]  ## Crops this version based on original image
-    resize_to_limit(100,100)
+    process crop: [200, 200]  ## Crops this version based on original image
+    resize_to_limit(200, 200)
   end
 
 end

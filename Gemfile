@@ -11,12 +11,13 @@ gem 'carrierwave-mongoid', require: 'carrierwave/mongoid'
 gem 'ckeditor'
 gem 'cocoon'
 gem 'coffee-rails', '~> 4.2'
+gem 'colorize'
 #D
 gem 'devise'
 #E
 gem 'enumerize'
 #F
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
 #G
 gem 'gettext'
 gem 'gettext_i18n_rails'

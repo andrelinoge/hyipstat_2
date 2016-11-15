@@ -48,14 +48,14 @@
         ul.nav.side-menu
           li
             a
-              i.fa.fa-bug
-              | Additional Pages
+              i.fa.fa-users
+              = _('User management')
               span.fa.fa-chevron-down
             ul.nav.child_menu style=("display: none")
               li
-                a href="e_commerce.html"  E-commerce
+                a href="#{admin_users_path}"  = _('Users')
               li
-                a href="projects.html"  Projects
+                a href="projects.html"  = _('Comments')
               li
                 a href="project_detail.html"  Project Detail
               li

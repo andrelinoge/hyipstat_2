@@ -78,6 +78,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.10.0)
+    colorize (0.8.1)
     concurrent-ruby (1.0.2)
     css_parser (1.4.5)
       addressable
@@ -312,6 +313,7 @@ DEPENDENCIES
   ckeditor
   cocoon
   coffee-rails (~> 4.2)
+  colorize
   database_cleaner
   devise
   enumerize

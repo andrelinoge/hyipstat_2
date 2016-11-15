@@ -1,8 +1,8 @@
-- content_for(:page_title, _('Listing of Articles'))
+- content_for(:page_title, _('Listing of All users'))
 
-a.btn.btn-primary href="#{new_admin_article_path}"
+a.btn.btn-primary href="#{new_admin_user_path}"
   span.glyphicon.glyphicon-plus
-  = _('New Article')
+  = _('New User')
 br
 br
 br
@@ -11,6 +11,7 @@ table#datatable-responsive.table.table-striped.table-bordered.dt-responsive.nowr
   thead
     tr
       th = _('Full Name')
+      th = _('Role')
       th = _('Login name')
       th = _('Email')
       th = _('Last sign in')
@@ -21,6 +22,7 @@ table#datatable-responsive.table.table-striped.table-bordered.dt-responsive.nowr
     - @resources.each do |resource|
       tr
         th = link_to resource.full_name, admin_user_path(resource)
+        th = role_human(resource.role)
         th = resource.login_name
         th = resource.email
         th = resource.last_sign_in_ip
@@ -28,7 +30,7 @@ table#datatable-responsive.table.table-striped.table-bordered.dt-responsive.nowr
         th.text-center
           a href="#{edit_admin_user_path(resource)}"
             span.glyphicon.glyphicon-pencil
-          a.col-md-offset-4 data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="#{send("admin_article_path", resource)}"
+          a.col-md-offset-4 data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="#{admin_user_path(resource)}"
             span.glyphicon.glyphicon-trash
 
 - content_for(:javascript) do

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :hyip_categories
     resources :hyips
     resources :pages, except: [:new, :create, :destroy]
+    resources :users
   end
   root 'welcome#index'
 
