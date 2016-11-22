@@ -1,8 +1,42 @@
-= simple_form_for [:admin, @resource], :html => {:multipart => true} do |f|
+= simple_form_for [:admin, @resource], :html => {multipart: true, class: 'form-horizontal form-label-left input_mask'} do |f|
 
+  .col-md-6.col-sm-6.col-xs-12.form-group
+    = f.input :first_name, input_html: {class: 'form-control has-feedback-left'}, label: false, placeholder: _('First Name')
+    span.fa.fa-user.form-control-feedback.left aria-hidden="true" 
+
+  .col-md-6.col-sm-6.col-xs-12.form-group
+    = f.input :last_name, input_html: {class: 'form-control'}, label: false, placeholder: _('Last Name')
+    span.fa.fa-user.form-control-feedback.right aria-hidden="true" 
+
+  .col-md-6.col-sm-6.col-xs-12.form-group
+    = f.input :email, input_html: {class: 'form-control has-feedback-left'}, label: false, placeholder: _('Email')
+    span.fa.fa-envelope.form-control-feedback.left aria-hidden="true" 
+
+  .col-md-6.col-sm-6.col-xs-12.form-group
+    = f.input :birthday, as: :datepicker, input_html: {class: 'form-control'}, label: false, placeholder: _('Date of Birth')
+    span.fa.fa-birthday-cake.form-control-feedback.right aria-hidden="true" 
+
+  .col-md-6.col-sm-6.col-xs-12.form-group
+    select.form-control
+      option Choose sex
+      option Option one
+      option Option two
+      option Option three
+      option Option four
+
+  .col-md-6.col-sm-6.col-xs-12.form-group
+    select.form-control
+      option Choose role
+      option Option one
+      option Option two
+      option Option three
+      option Option four
+
+    /= f.association :role, prompt: _('User role')
+  
   .clearfix
+  .ln_solid
 
-  /= f.association :role, prompt: _('User role')
   = f.input :avatar, as: :file, label: false
 
   .clearfix
@@ -22,3 +56,6 @@
 coffee:
   jQuery ->
     new UserAvatarCropper()
+    new UserForm()
+
+
