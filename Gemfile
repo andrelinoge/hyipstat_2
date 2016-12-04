@@ -5,6 +5,7 @@ gem 'any_login'
 #B
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass'
+gem 'bootstrap-datepicker-rails'
 gem 'bson_ext'
 #C
 gem 'carrierwave-mongoid', require: 'carrierwave/mongoid'

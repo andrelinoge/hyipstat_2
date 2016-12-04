@@ -19,7 +19,7 @@
 //= require js/icheck/icheck.min.js
 
 //= require js/moment/moment.min.js
-//= require js/datepicker/daterangepicker.js
+//= require bootstrap-datepicker
 
 //= require js/chartjs/chart.min.js
 

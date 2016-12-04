@@ -1,0 +1,9 @@
+ok - faker: install
+ok - users: seeds, faked names
+- users: CRUD + avatars
+- users: registration
+- users: sign in
+- users: roles
+- users: login to admin
+- users: permissions (cancancan)
+- mailercatcher: instal + config
