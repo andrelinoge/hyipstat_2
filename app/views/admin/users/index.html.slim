@@ -22,7 +22,7 @@ table#datatable-responsive.table.table-striped.table-bordered.dt-responsive.nowr
     - @resources.each do |resource|
       tr
         th = link_to resource.full_name, admin_user_path(resource)
-        th = role_human(resource.role)
+        th = resource.role
         th = resource.login_name
         th = resource.email
         th = resource.last_sign_in_ip

@@ -17,6 +17,7 @@ gem 'devise'
 #E
 gem 'enumerize'
 #F
+gem 'faker'
 gem 'font-awesome-rails'
 #G
 gem 'gettext'

@@ -1,3 +1,8 @@
+require 'database_cleaner'
+DatabaseCleaner[:mongoid].strategy = :truncation
+puts "Truncationing of DB...".colorize(:red)
+DatabaseCleaner.clean
+
 puts "Seeding DB with predifined data:".colorize(:yellow)
 
 puts "Seeding article categories...".colorize(:green)
@@ -39,5 +44,22 @@ end
 
 puts "Setting slugs for all sort of articles, categories, pages...".colorize(:green)
 Rake::Task['mongoid_slug:set'].execute
+
+puts "Seeding with test users...".colorize(:green)
+
+USER_PASSWORD = ENV['USER_PASSWORD'] || 'userPassword123'
+
+User::ROLES.each do |role|
+  User.create({
+    
+    role: role,
+    sex: :male,
+    email: "#{role}_user@mail.com",
+    password: USER_PASSWORD,
+    password_confirmation: USER_PASSWORD
+  })
+
+ puts "#{role}_user@mail.com".colorize(:marvel), "#{USER_PASSWORD}".colorize(:pink)
+end
 
 puts "Done!".colorize(:yellow)
