@@ -1,11 +1,34 @@
-- content_for(:page_title, @resource.full_name)
-
-
+- content_for(:page_title, _('User profile'))
 .clearfix
 hr
 
-= link_to edit_admin_user_path(@resource), class: 'btn btn-success' do
-  span.glyphicon.glyphicon-pencil
-  = _('Edit')
+.col-md-3.col-sm-3.col-xs-12.profile_left
+  .profile_img
+    img.img-responsive.avatar-view alt="Avatar" data-original-title=("Change the avatar") src="#{@resource.avatar.url(:thumb)}" title="" /
+      
+  h3 =@resource.full_name
+  ul.list-unstyled.user_data
+    li
+      i.fa.fa-briefcase.user-profile-icon
+      |&nbsp;
+      =@resource.role.to_s.capitalize
+    li
+      i.fa.fa-birthday-cake.user-profile-icon 
+      |&nbsp;
+      ="#{@resource.birthday || _('Unknown')}"
+    li.m-top-xs
+      i.fa.user-profile-icon class="fa-#{@resource.sex}"
+      |&nbsp;
+      =@resource.sex.to_s.capitalize
+  
+  = link_to edit_admin_user_path(@resource), class: 'btn btn-success' do
+    span.i.fa.fa-edit.m-right-xs
+    = _('Edit profile')
 
-= link_to _('Back'), admin_user_path, class: 'btn btn-primary'
+  = link_to _('Back'), admin_user_path, class: 'btn btn-primary'
+
+.col-md-9.col-sm-9.col-xs-12
+  .profile_title
+    .col-md-6
+      h2 =_('User Activity')
+  

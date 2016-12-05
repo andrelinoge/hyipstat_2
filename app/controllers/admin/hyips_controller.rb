@@ -34,13 +34,13 @@ class Admin::HyipsController < Admin::ApplicationController
   end
 
   def destroy
-    #@resource.destroy
+    @resource.destroy
     redirect_to admin_hyips_url, notice: 'Hyip was successfully destroyed.'
   end
 
   private
     def set_resource
-      #@resource = Hyip.find(params[:id])
+      @resource = Hyip.find(params[:id])
     end
 
     def resource_params

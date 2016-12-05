@@ -2,8 +2,7 @@
 //= require jquery_ujs
 //= require turbolinks
 
-//= require bootstrap-sprockets
-//= require js/bootstrap.min.js
+//= require bootstrap
 //= require js/flot/jquery.flot.js
 //= require js/flot/jquery.flot.pie.js
 //= require js/flot/jquery.flot.orderBars.js

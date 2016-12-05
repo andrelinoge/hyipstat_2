@@ -5,4 +5,5 @@ class @UserAvatarCropper
 
 class @UserForm
   constructor: ->
+    $('.datepicker').datepicker();
     

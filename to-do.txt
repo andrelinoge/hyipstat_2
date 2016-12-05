@@ -1,6 +1,6 @@
 ok - faker: install
 ok - users: seeds, faked names
-- users: CRUD + avatars
+ok - users: CRUD + avatars
 - users: registration
 - users: sign in
 - users: roles

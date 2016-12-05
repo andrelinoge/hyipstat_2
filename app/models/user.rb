@@ -30,13 +30,15 @@ class User
 
   field :sex
   field :role
-  field :birthday,                type: Time
+  field :birthday,                type: Date
 
   enumerize :sex, in: SEX_OPTIONS
   enumerize :role, in: ROLES, default: :user
 
   devise :database_authenticatable, :registerable, :confirmable, :recoverable, :rememberable, :trackable, :validatable
 
+  validates_presence_of :login_name, :first_name, :last_name, :email, :sex, :role
+  validates :password, presence: true,  on: :create
 
   # Methods
   def full_name
