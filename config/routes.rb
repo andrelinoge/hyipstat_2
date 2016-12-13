@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
+  devise_for :user, controllers: { sessions: 'admin/sessions' }, skip: [:registrations]
+
   namespace :admin do
     get '/', to: 'dashboard#index'
     resources :articles
@@ -8,9 +10,14 @@ Rails.application.routes.draw do
     resources :hyips
     resources :pages, except: [:new, :create, :destroy]
     resources :users
-  end
-  root 'welcome#index'
 
-  devise_for :users
+    resources :sessions, only: [:new, :create]
+  end
+
+  scope :locale do
+    root 'welcome#index'
+  end
+
+  #devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

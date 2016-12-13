@@ -1,0 +1,15 @@
+doctype html
+html lang="en"
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    /! Meta, title, CSS, favicons, etc.
+    meta charset="utf-8" /
+    meta content="IE=edge" http-equiv="X-UA-Compatible" /
+    meta content="width=device-width, initial-scale=1" name="viewport" /
+    title Admin
+    = csrf_meta_tags
+    = stylesheet_link_tag    'admin-manifest', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'admin-manifest', 'data-turbolinks-track': 'reload'
+
+  body style="background:#F7F7F7;"
+    = yield

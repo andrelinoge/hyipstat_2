@@ -6,4 +6,5 @@ ok - users: CRUD + avatars
 - users: roles
 - users: login to admin
 - users: permissions (cancancan)
-- mailercatcher: instal + config
+ok - mailercatcher: install + config
+- settings: install
