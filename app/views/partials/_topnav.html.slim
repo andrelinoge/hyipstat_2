@@ -6,7 +6,7 @@
         li
           a.user-profile.dropdown-toggle aria-expanded="false" data-toggle="dropdown" href="javascript:;"
             = image_tag "img.jpg"
-            | John Doe
+            = current_user.full_name
             span.fa.fa-angle-down
           ul.dropdown-menu.dropdown-usermenu.pull-right
             li

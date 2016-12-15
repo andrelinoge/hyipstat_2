@@ -1,4 +1,6 @@
 require 'database_cleaner'
+require 'faker'
+
 DatabaseCleaner[:mongoid].strategy = :truncation
 puts "Truncationing of DB...".colorize(:red)
 DatabaseCleaner.clean
@@ -51,15 +53,18 @@ USER_PASSWORD = ENV['USER_PASSWORD'] || 'userPassword123'
 
 User::ROLES.each do |role|
   User.create({
-    
+    login_name: Faker::Name.first_name.downcase,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
     role: role,
     sex: :male,
-    email: "#{role}_user@mail.com",
+    email: "#{role}@mail.com",
     password: USER_PASSWORD,
-    password_confirmation: USER_PASSWORD
+    password_confirmation: USER_PASSWORD,
+    confirmed_at: DateTime.now
   })
 
- puts "#{role}_user@mail.com".colorize(:marvel), "#{USER_PASSWORD}".colorize(:pink)
+ puts "#{role}@mail.com".colorize(:marvel), "#{USER_PASSWORD}".colorize(:pink)
 end
 
 puts "Done!".colorize(:yellow)

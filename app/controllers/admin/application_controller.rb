@@ -7,10 +7,9 @@ class Admin::ApplicationController < ApplicationController
 	protected
   
   def authenticate_user!
-    if user_signed_in?
-      super
-    else
-      redirect_to new_admin_session_path
+    if current_user.nil? || current_user.role.user?
+      sign_out
+      redirect_to new_admin_user_session_path
     end
   end
 end

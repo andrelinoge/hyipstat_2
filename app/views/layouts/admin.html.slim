@@ -7,8 +7,8 @@ html
       = content_for?(:title) ? yield(:title) : 'Admin page'
 
     = csrf_meta_tags
-    = stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'admin', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'admin-manifest', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'admin-manifest', 'data-turbolinks-track': 'reload'
   body.nav-md
     div.container.body
       div.main_container

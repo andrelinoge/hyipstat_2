@@ -2,7 +2,7 @@ ok - faker: install
 ok - users: seeds, faked names
 ok - users: CRUD + avatars
 - users: registration
-- users: sign in
+ok - users: sign in
 - users: roles
 - users: login to admin
 - users: permissions (cancancan)
