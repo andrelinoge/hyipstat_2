@@ -53,7 +53,7 @@ gem 'simple_form'
 gem 'slim-rails'
 #T
 gem 'therubyracer', platforms: :ruby
-gem 'turbolinks', '~> 5'
+#gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #U
 gem 'uglifier', '>= 1.3.0'

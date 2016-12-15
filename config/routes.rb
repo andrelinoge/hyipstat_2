@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
-  devise_for :user, controllers: { sessions: 'admin/sessions' }, skip: [:registrations]
+  devise_for :users
 
   namespace :admin do
     get '/', to: 'dashboard#index'
