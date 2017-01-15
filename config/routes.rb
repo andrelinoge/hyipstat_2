@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :hyips
     resources :pages, except: [:new, :create, :destroy]
     resources :users
+    resources :settings, onle: [:index, :edit, :update]
 
     #resources :sessions, only: [:new, :create]
 

@@ -1,0 +1,14 @@
+- content_for(:page_title, _('Edit setting'))
+
+= simple_form_for @resource, url: admin_setting_path(@resource), html: {:multipart => true} do |f|
+  .col-xs-6
+    = f.input :value, label: @resource.key
+
+  .clearfix
+  br
+  .actions
+    = link_to _('Back'), admin_setting_path, class: 'btn btn-primary'
+    '
+    = f.submit class: 'btn btn-success'
+
+

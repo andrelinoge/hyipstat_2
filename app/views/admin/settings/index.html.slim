@@ -1,0 +1,28 @@
+- content_for(:page_title, _('Site settings'))
+
+table#datatable-responsive.table.table-striped.table-bordered.dt-responsive.nowrap cellspacing="0" width="100%"
+  thead
+    tr
+      th = _('Key')
+      th = _('Value')
+      th.nosort
+
+  tbody
+    - @resources.each do |resource|
+      tr
+        th = resource.key
+        th = resource.value
+        th.text-center
+          a href="#{edit_admin_setting_path(resource)}"
+            span.glyphicon.glyphicon-pencil
+          
+
+- content_for(:javascript) do
+  coffee:
+    $ -> $('#datatable-responsive').DataTable({
+      'aoColumnDefs': [{
+          'bSortable': false,
+          'aTargets': ['nosort']
+      }]
+    })
+

@@ -65,43 +65,9 @@
           li
             a
               i.fa.fa-windows
-              | Extras
+              = _('Site management')
               span.fa.fa-chevron-down
             ul.nav.child_menu style=("display: none")
               li
-                a href="page_404.html"  404 Error
-              li
-                a href="page_500.html"  500 Error
-              li
-                a href="plain_page.html"  Plain Page
-              li
-                a href="login.html"  Login Page
-              li
-                a href="pricing_tables.html"  Pricing Tables
-          li
-            a
-              i.fa.fa-sitemap
-              | Multilevel Menu
-              span.fa.fa-chevron-down
-            ul.nav.child_menu style=("display: none")
-              li
-                a href="#level1_1"  Level One
-              li
-                a
-                  | Level One
-                  span.fa.fa-chevron-down
-                ul.nav.child_menu style=("display: none")
-                  li.sub_menu
-                    a href="level2.html"  Level Two
-                  li
-                    a href="#level2_1"  Level Two
-                  li
-                    a href="#level2_2"  Level Two
-              li
-                a href="#level1_2"  Level One
-          li
-            a href="javascript:void(0)"
-              i.fa.fa-laptop
-              | Landing Page
-              span.label.label-success.pull-right Coming Soon
+                a href="#{admin_settings_path}" = _('Site settings')
     /! /sidebar menu

@@ -67,4 +67,13 @@ User::ROLES.each do |role|
  puts "#{role}@mail.com".colorize(:marvel), "#{USER_PASSWORD}".colorize(:pink)
 end
 
+puts "Seeding with test settings...".colorize(:green)
+initial_site_settings = {
+  phone: '123-345-678',
+  email: 'mail@mail.com'
+}
+
+initial_site_settings.each_pair {|key, value| AppSetting.create(key: key, value: value)}
+
+
 puts "Done!".colorize(:yellow)

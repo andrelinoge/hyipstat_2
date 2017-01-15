@@ -7,4 +7,4 @@ ok - users: sign in
 - users: login to admin
 - users: permissions (cancancan)
 ok - mailercatcher: install + config
-- settings: install
+ok - settings: install - create custom solution

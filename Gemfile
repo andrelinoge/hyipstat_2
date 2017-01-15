@@ -45,7 +45,6 @@ gem 'puma', '~> 3.0'
 #Q
 #R
 gem 'rails', '>= 5.0.0.1'
-gem 'rails-settings-cached'
 gem 'redis-rails'
 gem 'ruby_parser', :require => false
 #S
